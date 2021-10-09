@@ -733,6 +733,8 @@ end)
 
 CreateThread(function()
     for k, station in pairs(Config.Locations["stations"]) do
+        print(k)
+        print(station)
         local blip = AddBlipForCoord(station.coords.x, station.coords.y, station.coords.z)
         SetBlipSprite(blip, 61)
         SetBlipAsShortRange(blip, true)
@@ -850,6 +852,9 @@ CreateThread(function()
         sleep = 1000
         if LocalPlayer.state['isLoggedIn'] then
             local pos = GetEntityCoords(PlayerPedId())
+            print(pos)
+            print(Config.Locations["checking"])
+            print(pos - Config.Locations["checking"])
 
             if #(pos - Config.Locations["checking"]) < 1.5 then
                 sleep = 7
